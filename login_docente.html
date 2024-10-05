@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Docente</title>
+    <link rel="stylesheet" href="css/estilo6.css">
+</head>
+<body background="">
+    <a href="docentes.html"></a>
+    <header>
+        <h1>Login Docente</h1>
+    </header>
+    <main>
+        <form action="dashboard_docente.html" method="post">
+            <label for="teacher-username">Usuario</label>
+            <input type="text" id="teacher-username" name="username" required>
+            <label for="teacher-password">Contraseña</label>
+            <input type="password" id="teacher-password" name="password" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p><a href="index.html">Regresar al inicio</a></p>
+    </main>
+    <script>
+        // Simulación de inicio de sesión
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe realmente
+            
+            // Aquí iría la lógica de validación del usuario, por ejemplo:
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Simulando validación correcta
+            if (username === "docente" && password === "password") { // Cambia esto según tu lógica
+                alert("Inicio de sesión exitoso!");
+                // Redirigir al panel del docente
+                window.location.href = "panel_docente.html"; // Cambia esto a tu página de panel
+            } else {
+                alert("Credenciales incorrectas. Inténtalo de nuevo.");
+            }
+        });
+    </script>
+    <footer>
+        <p>© 2024 Plataforma Educativa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

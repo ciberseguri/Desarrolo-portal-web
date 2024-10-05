@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador Plataforma Educativa</title>
+    <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+    <header>
+        <h1>Panel de Administrador</h1>
+        <nav>
+            <ul>
+                <li><a href="#usuarios">Gestionar usuarios</a></li>
+                <li><a href="#docente">Gestion de Docente</a></li>
+                <li><a href="#curso">Gestionar Cursos</a></li>
+                <li><a href="#reportes">Generar reporte</a></li>
+                <li><a href="#roles">Roles</a></li>
+                <li><a href="#notificaciones">Notificacion</a></li>
+                <li><a href="#estadisticas">Estadistica</a></li>
+                <li><a href="#materiales">Material</a></li>
+                <li><a href="#soporte">Soporte</a></li>
+                <li><a href="#configuracion">Configuracion</a></li>
+                <li><a href="#historias">Historia</a></li>
+                <li><a href="#cerrar-sesion">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="usuarios">
+            <h2>Gestionar Usuarios</h2>
+            <p>Aqui Puedes Administrar los usuarios de la plataforma.</p>
+            <input type="text" id="filtro" placeholder="Buscar Usuarios" required>
+            <button id="Buscar">Buscar</button>
+            <table>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr>
+                    <td><img src="path/to/photo1.jpg" alt="Usuario 1" class="foto-usuario"></td>
+                    <td>Ejemplo Usuario 1</td>
+                    <td>usuarios1@example.com</td>
+                    <td>Estudiante</td>
+                    <td><button>Editar</button> <button>Eliminar</button></td>
+                </tr>
+                <tr>
+                    <td><img src="path/to/photo2.jpg" alt="Usuario 2" class="foto-usuario"></td>
+                    <td>Ejemplo Usuario 2</td>
+                    <td>usuarios2@example.com</td>
+                    <td>Docente</td>
+                    <td><button>Editar</button> <button>Eliminar</button></td>
+                </tr>
+                <!-- Agregar más usuarios aquí -->
+            </table>
+        </section>
+        <section id="docente">
+            <h2>Gestion Docente</h2>
+            <p>Aqui solo podras administrar docentes que están registrados en la plataforma</p>
+        </section>
+        <section id="curso">
+            <h2>Gestion Cursos</h2>
+            <p>Aquí podrás agregar, editar y/o eliminar cursos en la plataforma.</p>
+        </section>
+        <section id="reporte">
+            <h2>Generar Reporte</h2>
+            <p>Solo puedes hacer reportes, como actividad que se va a realizar en IEPVA.</p>
+        </section>
+        <section id="roles">
+            <h2>Gestion de Roles</h2>
+            <p>En este espacio puedes asignar roles a los usuarios y definir permisos.</p>
+            <form>
+                <label for="usuariosRol">Selecciona Usuarios:</label>
+                <select id="usuariosRol">
+                    <option value="usuario1">Usuario 1</option>
+                    <option value="usuario2">Usuario 2</option>
+                </select>
+                <label for="rol">Seleccionar Rol:</label>
+                <select id="rol">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Docente">Docente</option>
+                    <option value="Estudiante">Estudiante</option>
+                </select>
+                <button type="submit">Asignar Rol</button>
+            </form>
+        </section>
+        <section id="notificaciones">
+            <h2>Notificaciones</h2>
+            <ul>
+                <li>Nuevo Docente Registrado</li>
+                <li>Un usuario ha solicitado acceso a un curso.</li>
+            </ul>
+        </section>
+        <section id="estadisticas">
+            <h2>Estadisticas</h2>
+            <p>Total de Usuarios: 150</p>
+            <p>Total de Docentes: 30</p>
+            <p>Total de Cursos: 20</p>
+        </section>
+        <section id="soporte">
+            <h2>Soporte Técnico</h2>
+            <p>¿Tienes alguna pregunta? <a href="mailto: sopporte@plataformaeducativa.com">Contáctanos</a></p>
+        </section>
+        <section id="configuracion">
+            <h2>Configuración</h2>
+            <p>Ajusta las preferencias del sistema aquí.</p>
+        </section>
+        <section id="historias">
+            <h2>Historias de Actividad</h2>
+            <ul>
+                <li>Usuario "Maria del Andes" se ha registrado.</li>
+                <li>Docente "Andrés Solano" ha creado un nuevo curso.</li>
+            </ul>
+        </section>
+        <section id="chat">
+            <h2>Chat de Soporte</h2>
+            <div class="mensaje">Bienvenido al chat de soporte. ¿En qué te podemos ayudar?</div>
+            <input type="text" id="mensaje" placeholder="Escribir tu mensaje aquí">
+            <button id="enviar">Enviar</button>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Plataforma Educativa. Todos los derechos reservados.</p>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

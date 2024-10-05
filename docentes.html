@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Docente</title>
+    <link rel="stylesheet" href="css/docentes.css">
+</head>
+<body>
+    <header>
+        <h1>Panel del Docente</h1>
+        <nav>
+            <ul>
+                <li><button id="courses-button">Cursos</button></li>
+                <li><a href="#examenes.html">Exámenes</a></li>
+                <li><button id="logout-button">Cerrar Sesión</button></li> <!-- Botón de cerrar sesión -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="grid-container">
+            <section id="docente-info" class="grid-item">
+                <h2>Bienvenido, teresa</h2>
+                <img src="imagen/profesora .jpg" alt="Teresa " class="docente-foto">
+                <p>Experto en el área de matemáticas.</p>
+            </section>
+
+            <section class="grid-item" id="courses-section" style="display:none;">
+                <h2>Mis Cursos</h2>
+                <div class="course">
+                    <h3>Matemáticas Básicas</h3>
+                    <p>Descripción: Introducción a conceptos básicos de matemáticas.</p>
+                    <p>Horario: Lunes y Miércoles, 10:00 AM - 11:30 AM</p>
+                </div>
+                <div class="course">
+                    <h3>Álgebra</h3>
+                    <p>Descripción: Estudio de las estructuras algebraicas y sus aplicaciones.</p>
+                    <p>Horario: Martes y Jueves, 2:00 PM - 3:30 PM</p>
+                </div>
+            </section>
+
+            <section class="grid-item">
+                <h2>Recursos</h2>
+                <h3>Subir Archivos PDF y Videos</h3>
+                <form id="upload-form">
+                    <label for="file-upload">Selecciona un archivo:</label>
+                    <input type="file" id="file-upload" accept=".pdf, video/*" required>
+                    <label for="course-select">Selecciona el Curso:</label>
+                    <select id="course-select" required>
+                        <option value="Matemáticas Básicas">Matemáticas Básicas</option>
+                        <option value="Álgebra">Álgebra</option>
+                    </select>
+                    <button type="submit">Subir Archivo</button>
+                </form>
+                <h3>Archivos Subidos</h3>
+                <ul id="uploaded-files-list">
+                    <!-- Aquí se mostrarán los archivos subidos -->
+                </ul>
+            </section>
+
+            <section class="grid-item">
+                <h2>Foros de Consulta</h2>
+                <h3>Activar Foro de Consulta</h3>
+                <button id="activate-consult-forum">Activar Foro de Consulta</button>
+                <h3>Foro de Participación</h3>
+                <button id="activate-participation-forum">Activar Foro de Participación</button>
+            </section>
+
+            <section class="grid-item">
+                <h2>Foro de Chat</h2>
+                <h3>Chat en Tiempo Real</h3>
+                <button id="start-chat">Iniciar Chat</button>
+            </section>
+
+            <section class="grid-item">
+                <h2>Exámenes</h2>
+                <h3>Crear Nuevo Examen</h3>
+                <form id="exam-form">
+                    <label for="exam-title">Título del Examen:</label>
+                    <input type="text" id="exam-title" required>
+                    <label for="exam-date">Fecha de Entrega:</label>
+                    <input type="date" id="exam-date" required>
+                    <button type="submit">Crear Examen</button>
+                </form>
+            </section>
+
+            <section class="grid-item">
+                <h2>Clases y Alumnos</h2>
+                <h3>Lista de Alumnos Matriculados</h3>
+                <ul>
+                    <li>Juan Pérez - Sesión: Lunes 10:00 AM</li>
+                    <li>María López - Sesión: Miércoles 2:00 PM</li>
+                </ul>
+                <h3>Integración con Zoom</h3>
+                <button>Crear Sesión de Zoom</button>
+            </section>
+
+            <section class="grid-item">
+                <h2>Anuncios</h2>
+                <h3>Publicar un Anuncio</h3>
+                <form>
+                    <label for="announcement">Escribe tu anuncio:</label>
+                    <textarea id="announcement" rows="3" required></textarea>
+                    <button type="submit">Publicar Anuncio</button>
+                </form>
+                <h3>Anuncios Recientes</h3>
+                <ul>
+                    <li>Se activa el Foro de Consulta el lunes a las 10:00 AM.</li>
+                    <li>Próximo examen de matemáticas: 15 de octubre.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Plataforma Educativa. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Lógica para el botón de cerrar sesión
+        document.getElementById("logout-button").addEventListener("click", function() {
+            alert("Has cerrado sesión.");
+            window.location.href = "login.html"; // Cambia esto según tu flujo
+        });
+
+        // Lógica para mostrar/ocultar la sección de cursos
+        document.getElementById("courses-button").addEventListener("click", function() {
+            var coursesSection = document.getElementById("courses-section");
+            coursesSection.style.display = (coursesSection.style.display === "none") ? "block" : "none";
+        });
+
+        // Lógica para subir archivos
+        document.getElementById("upload-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que se recargue la página
+
+            const fileInput = document.getElementById("file-upload");
+            const courseSelect = document.getElementById("course-select");
+            const uploadedFilesList = document.getElementById("uploaded-files-list");
+
+            // Crear un nuevo elemento de lista para el archivo subido
+            const fileName = fileInput.files[0].name; // Obtiene el nombre del archivo
+            const courseName = courseSelect.value; // Obtiene el curso seleccionado
+            const listItem = document.createElement("li");
+            listItem.textContent = `${fileName} (Curso: ${courseName})`;
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Eliminar";
+            deleteButton.className = "delete-file";
+            listItem.appendChild(deleteButton);
+            uploadedFilesList.appendChild(listItem);
+
+            // Limpiar el formulario
+            fileInput.value = "";
+            courseSelect.selectedIndex = 0; // Resetea la selección
+
+            // Lógica para eliminar el archivo
+            deleteButton.addEventListener("click", function() {
+                uploadedFilesList.removeChild(listItem);
+            });
+        });
+
+        // Lógica para crear examen
+        document.getElementById("exam-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que se recargue la página
+
+            const examTitle = document.getElementById("exam-title").value;
+            const examDate = document.getElementById("exam-date").value;
+
+            // Aquí deberías implementar la lógica para guardar el examen en el servidor
+            alert(`Examen creado: ${examTitle} para el ${examDate}`);
+
+            // Limpiar el formulario
+            document.getElementById("exam-title").value = "";
+            document.getElementById("exam-date").value = "";
+        });
+
+        // Lógica para activar foros
+        document.getElementById("activate-consult-forum").addEventListener("click", function() {
+            alert("Foro de Consulta activado.");
+            // Aquí deberías implementar la lógica para activar el foro en el servidor
+        });
+
+        document.getElementById("activate-participation-forum").addEventListener("click", function() {
+            alert("Foro de Participación activado.");
+            // Aquí deberías implementar la lógica para activar el foro en el servidor
+        });
+
+        // Lógica para iniciar chat
+        document.getElementById("start-chat").addEventListener("click", function() {
+            alert("Chat iniciado. Conéctate con tus alumnos.");
+            // Aquí deberías implementar la lógica para iniciar el chat en el servidor
+        });
+    </script>
+</body>
+</html>
